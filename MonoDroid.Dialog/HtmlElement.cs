@@ -56,6 +56,7 @@ namespace MonoDroid.Dialog
 			this.Title = i.GetStringExtra("Title");
 			
 			WebView webview = new WebView(this);
+			webview.Settings.BuiltInZoomControls = true;
 			webview.Settings.JavaScriptEnabled = true;
  			SetContentView(webview);	
 			webview.LoadUrl(url);
