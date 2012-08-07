@@ -5,6 +5,7 @@ using Android.App;
 using Android.Content;
 using Android.Views;
 using Android.Widget;
+using MonoDroid.Dialog;
 
 namespace MonoDroid.Dialog
 {
@@ -377,17 +378,17 @@ namespace MonoDroid.Dialog
             dialog.Create().Show();
         }
 
-        void IDialogInterfaceOnClickListener.OnClick(IDialogInterface dialog, DialogInterfaceButton which)
-        {
-            if ((int)which >= 0)
-            {
-                this.RadioSelected = (int)which;
-                string radioValue = GetSelectedValue();
-                _value.Text = radioValue;
-            }
-
-            dialog.Dismiss();
-        }
+		void IDialogInterfaceOnClickListener.OnClick(IDialogInterface dialog, int which)
+		{
+			if (which >= 0)
+			{
+				this.RadioSelected = (int)which;
+				string radioValue = GetSelectedValue();
+				_value.Text = radioValue;
+			}
+			
+			dialog.Dismiss();
+		}
 
         /// <summary>
         /// Enumerator that returns all the sections in the RootElement.
